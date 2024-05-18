@@ -1,1 +1,3 @@
-export {default as hello} from './hello';
+import endpointsHandler from '@functions/endpointsHandler';
+
+export default {endpointsHandler};

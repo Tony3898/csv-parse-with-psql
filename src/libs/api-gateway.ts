@@ -20,23 +20,23 @@ export const formatJSONResponse = (
     headers?: object,
     isBase64Encoded?: boolean,
 ): APIGatewayProxyResult => {
-    if (statusCode >= 400 && statusCode <= 500)
-        logger.error('[Error]', response);
-    else logger.info('[Success]', response);
-    return {
-        statusCode,
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Expose-Headers': '*',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-            ...headers,
-        },
-        isBase64Encoded,
-        body: response
-            ? typeof response == 'string'
-                ? response
-                : JSON.stringify(response, null, 2)
-            : '',
-    };
+  if (statusCode >= 400 && statusCode <= 500)
+    logger.error('[Error]', response);
+  else logger.info('[Success]', response);
+  return {
+    statusCode,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Expose-Headers': '*',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+      ...headers,
+    },
+    isBase64Encoded,
+    body: response
+        ? typeof response == 'string'
+            ? response
+            : JSON.stringify(response, null, 2)
+        : '',
+  };
 };
