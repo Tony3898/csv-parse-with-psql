@@ -1,4 +1,4 @@
-# CSV-Parse with PSQL
+# CSV-Parse with PSQL and Serverless Framework
 
 Generate a list of users and insert that user in psql.
 
