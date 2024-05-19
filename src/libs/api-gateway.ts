@@ -1,24 +1,24 @@
-import type {APIGatewayProxyEvent, APIGatewayProxyResult, Handler} from 'aws-lambda';
-import type {FromSchema, JSONSchema} from 'json-schema-to-ts';
-import {Logging} from '@services/logging';
+import type { APIGatewayProxyEvent, APIGatewayProxyResult, Handler } from 'aws-lambda';
+import type { FromSchema, JSONSchema } from 'json-schema-to-ts';
+import { Logging } from '@services/logging';
 
 type ValidatedAPIGatewayProxyEvent<S extends JSONSchema> = Omit<
-    APIGatewayProxyEvent,
-    'body'
+APIGatewayProxyEvent,
+'body'
 > & { body: FromSchema<S> };
 
 export type ValidatedEventAPIGatewayProxyEvent<S extends JSONSchema> = Handler<
-    ValidatedAPIGatewayProxyEvent<S>,
-    APIGatewayProxyResult
+ValidatedAPIGatewayProxyEvent<S>,
+APIGatewayProxyResult
 >;
 
 const logger = Logging.GetLogger();
 
 export const formatJSONResponse = (
-    response: Record<string, unknown> | string | unknown,
-    statusCode: number,
-    headers?: object,
-    isBase64Encoded?: boolean,
+  response: Record<string, unknown> | string | unknown,
+  statusCode: number,
+  headers?: object,
+  isBase64Encoded?: boolean,
 ): APIGatewayProxyResult => {
   if (statusCode >= 400 && statusCode <= 500)
     logger.error('[Error]', response);
@@ -34,9 +34,9 @@ export const formatJSONResponse = (
     },
     isBase64Encoded,
     body: response
-        ? typeof response == 'string'
-            ? response
-            : JSON.stringify(response, null, 2)
-        : '',
+      ? typeof response == 'string'
+        ? response
+        : JSON.stringify(response, null, 2)
+      : '',
   };
 };

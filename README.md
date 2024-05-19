@@ -15,7 +15,7 @@ Generate a list of users and insert that user in psql.
    ``
 3. You can use ``examples/createUserEntries.ts`` to create users, to use this run
    ``npm run generate-csv``
-4. Run ``npm run dev`` to start the application the host ``localhost:8080``
+4. Run ``npm run dev`` to start the application the at ``http://localhost:8080``
 
 You can refer to ``psql-csv-parser.postman_collection.json`` for API Document.
 

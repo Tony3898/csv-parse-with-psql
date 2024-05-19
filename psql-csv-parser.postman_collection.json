@@ -1,0 +1,44 @@
+{
+  "info": {
+    "_postman_id": "f6254db5-e2df-4a03-9fc1-a3de609cbe18",
+    "name": "psql-csv-parser",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "16252884"
+  },
+  "item": [
+    {
+      "name": "parse-users",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/tony/Documents/playzone/presonal-repos/projects/csvParser/examples/generated_data.csv"
+            },
+            {
+              "key": "filename",
+              "value": "testUsers",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": "https://localhost:8080/qa/api/users/parse-csv"
+      },
+      "response": []
+    },
+    {
+      "name": "get-age-distribution",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://localhost:8080/qa/api/users/age-group-distribution"
+      },
+      "response": []
+    }
+  ]
+}

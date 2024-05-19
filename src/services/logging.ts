@@ -1,5 +1,5 @@
 import * as log4js from 'log4js';
-import {Logger, LogLevels} from '../type';
+import { Logger, LogLevels } from '../type';
 
 let loggerInstance: Logger = null;
 
@@ -57,7 +57,7 @@ function init(initOptions: LoggerOptions = {}): Logger {
     pm2mode,
     pm2InstanceVar,
   } = initOptions;
-  let {loggerType} = initOptions;
+  let { loggerType } = initOptions;
   if (!loggerType) {
     if (process.env.LOG_TYPE) {
       loggerType = process.env.LOG_TYPE as LoggerTypes;
@@ -74,10 +74,10 @@ function init(initOptions: LoggerOptions = {}): Logger {
   const config: log4js.Configuration = {
     appenders,
     categories: {
-      [LoggerTypes.DEFAULT]: {appenders: ['stdout'], level, enableCallStack: true},
-      [LoggerTypes.LOCAL]: {appenders: ['stdoutColored'], level, enableCallStack: true},
-      [LoggerTypes.LAMBDA]: {appenders: ['console'], level, enableCallStack: true},
-      [LoggerTypes.CONSOLE]: {appenders: ['console'], level, enableCallStack: true},
+      [LoggerTypes.DEFAULT]: { appenders: ['stdout'], level, enableCallStack: true },
+      [LoggerTypes.LOCAL]: { appenders: ['stdoutColored'], level, enableCallStack: true },
+      [LoggerTypes.LAMBDA]: { appenders: ['console'], level, enableCallStack: true },
+      [LoggerTypes.CONSOLE]: { appenders: ['console'], level, enableCallStack: true },
     },
   };
   if (pm2mode === 'cluster') {

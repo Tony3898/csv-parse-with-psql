@@ -1,6 +1,6 @@
-import {Logger} from '../type';
-import {parseFormData} from '@libs/parse-form-data';
-import {ValidatedEventAPIGatewayProxyEvent} from '@libs/api-gateway';
+import { Logger } from '../type';
+import { parseFormData } from '@libs/parse-form-data';
+import { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 
 interface CSVRecord {
   [key: string]: string;

@@ -1,5 +1,5 @@
-import {writeFileSync} from 'fs';
-import {en, es, faker, Faker} from '@faker-js/faker';
+import { writeFileSync } from 'fs';
+import { en, es, faker, Faker } from '@faker-js/faker';
 
 const generateCSV = (numEntries: number): string => {
   const headers = [
@@ -14,13 +14,13 @@ const generateCSV = (numEntries: number): string => {
   ];
 
   const lines = [headers.join(',')];
-  const customFaker = new Faker({locale: [es, en]});
+  const customFaker = new Faker({ locale: [es, en] });
 
   for (let i = 0; i < numEntries; i++) {
     const gender = customFaker.person.sexType();
     const firstName = customFaker.person.firstName(gender);
     const lastName = customFaker.person.lastName(gender);
-    const age = faker.number.int({min: 0, max: 100}).toString();
+    const age = faker.number.int({ min: 0, max: 100 }).toString();
     const addressLine1 = customFaker.location.streetAddress();
     const addressLine2 = customFaker.location.secondaryAddress();
     const city = customFaker.location.city();
