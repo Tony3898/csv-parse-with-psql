@@ -41,6 +41,11 @@ const serverlessConfiguration: AWS = {
             AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
             NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
             LOG_LEVEL: '${env:LOG_LEVEL,"INFO"}',
+            PG_SQL_USER: '${env:PG_SQL_USER}',
+            PG_SQL_PASSWORD: '${env:PG_SQL_PASSWORD}',
+            PG_SQL_HOST: '${env:PG_SQL_HOST}',
+            PG_SQL_PORT: '${env:PG_SQL_PORT}',
+            PG_SQL_DATABASE: '${env:PG_SQL_DATABASE}',
         },
     },
     resources: {

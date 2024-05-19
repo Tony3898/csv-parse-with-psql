@@ -1,5 +1,5 @@
 export default {
-    type: 'object',
-    properties: {},
-    required: [],
+  type: 'object',
+  properties: {},
+  required: [],
 } as const;

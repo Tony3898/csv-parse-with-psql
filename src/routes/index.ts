@@ -1,7 +1,10 @@
-import {parseUsersCsv} from '../controllers/users';
+import {ageGroupDistribution, parseUsersCsv} from '../controllers/users';
 
 export const routes: any = {
-    '/api/parse-users-csv': {
-        POST: parseUsersCsv,
-    },
+  '/api/users/parse-csv': {
+    POST: parseUsersCsv,
+  },
+  '/api/users/age-group-distribution': {
+    GET: ageGroupDistribution,
+  },
 };
